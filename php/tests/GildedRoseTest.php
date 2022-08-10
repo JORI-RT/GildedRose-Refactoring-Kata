@@ -6,26 +6,31 @@ namespace Tests;
 
 use GildedRose\GildedRose;
 use GildedRose\Item;
+use GildedRose\Item\AgedBrie;
+use GildedRose\Item\BackstagePasses;
+use GildedRose\Item\Conjured;
+use GildedRose\Item\Nomal;
+use GildedRose\Item\Sulfuras;
 use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase
 {
-	private function initGildedRose() {
+	private function initGildedRose() :GildedRose {
 		$items = [
-			new Item('+5 Dexterity Vest', 10, 20),			// normal item
-			new Item('Aged Brie', 2, 0),
-			new Item('Elixir of the Mongoose', 5, 7),		// normal
-			new Item('Sulfuras', 0, 80),
-			new Item('Sulfuras', -1, 80),
-			new Item('Backstage passes', 15, 20),
-			new Item('Backstage passes', 10, 49),
-			new Item('Backstage passes', 5, 49),
-			new Item('Conjured', 3, 6),
+			new Nomal('+5 Dexterity Vest', 10, 20),
+			new AgedBrie('Aged Brie', 2, 0),
+			new Nomal('Elixir of the Mongoose', 5, 7),
+			new Sulfuras('Sulfuras', 0, 80),
+			new Sulfuras('Sulfuras', -1, 80),
+			new BackstagePasses('Backstage passes', 15, 20),
+			new BackstagePasses('Backstage passes', 10, 49),
+			new BackstagePasses('Backstage passes', 5, 49),
+			new Conjured('Conjured', 3, 6),
 		];
 		return new GildedRose($items);
 	}
 
-	private function assertItem($item, $expName, $expSell_in, $expQuality) {
+	private function assertItem(Item $item, string $expName, int $expSell_in, int $expQuality) :void {
 		$this->assertSame($expName, $item->name, "check name. item->name = $item->name, exp = $expName");
 		$this->assertSame($expSell_in, $item->sell_in, "check sell_in. name = $expName, item->sell_in = $item->sell_in, exp = $expSell_in");
 		$this->assertSame($expQuality, $item->quality, "check quality. name = $expName, item->quality = $item->quality, exp = $expQuality");
