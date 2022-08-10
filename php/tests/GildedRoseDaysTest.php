@@ -37,41 +37,41 @@ class GildedRoseDaysTest extends TestCase
         
         $index = -1;
         
-        $this->assertSame('+5 Dexterity Vest', $items[++$index]->name);
-        $this->assertSame(9, $items[$index]->sell_in);
-        $this->assertSame(19, $items[$index]->quality);
+        $this->assertSame('+5 Dexterity Vest', $items[++$index]->getName());
+        $this->assertSame(9, $items[$index]->getSellIn());
+        $this->assertSame(19, $items[$index]->getQuality());
         
-        $this->assertSame('Aged Brie', $items[++$index]->name);
-        $this->assertSame(1, $items[$index]->sell_in);
-        $this->assertSame(1, $items[$index]->quality);
+        $this->assertSame('Aged Brie', $items[++$index]->getName());
+        $this->assertSame(1, $items[$index]->getSellIn());
+        $this->assertSame(1, $items[$index]->getQuality());
         
-        $this->assertSame('Elixir of the Mongoose', $items[++$index]->name);
-        $this->assertSame(4, $items[$index]->sell_in);
-        $this->assertSame(6, $items[$index]->quality);
+        $this->assertSame('Elixir of the Mongoose', $items[++$index]->getName());
+        $this->assertSame(4, $items[$index]->getSellIn());
+        $this->assertSame(6, $items[$index]->getQuality());
         
-        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->name);
-        $this->assertSame(0, $items[$index]->sell_in);
-        $this->assertSame(80, $items[$index]->quality);
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->getName());
+        $this->assertSame(0, $items[$index]->getSellIn());
+        $this->assertSame(80, $items[$index]->getQuality());
         
-        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->name);
-        $this->assertSame(-1, $items[$index]->sell_in);
-        $this->assertSame(80, $items[$index]->quality);
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->getName());
+        $this->assertSame(-1, $items[$index]->getSellIn());
+        $this->assertSame(80, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(14, $items[$index]->sell_in);
-        $this->assertSame(21, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(14, $items[$index]->getSellIn());
+        $this->assertSame(21, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(9, $items[$index]->sell_in);
-        $this->assertSame(50, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(9, $items[$index]->getSellIn());
+        $this->assertSame(50, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(4, $items[$index]->sell_in);
-        $this->assertSame(50, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(4, $items[$index]->getSellIn());
+        $this->assertSame(50, $items[$index]->getQuality());
         
-//        $this->assertSame('Conjured Mana Cake', $items[++$index]->name);
-//        $this->assertSame(2, $items[$index]->sell_in);
-//        $this->assertSame(5, $items[$index]->quality);
+//        $this->assertSame('Conjured Mana Cake', $items[++$index]->getName());
+//        $this->assertSame(2, $items[$index]->getSellIn());
+//        $this->assertSame(5, $items[$index]->getQuality());
     }
 
     public function testDay10(): void
@@ -85,41 +85,41 @@ class GildedRoseDaysTest extends TestCase
         
         $index = -1;
         
-        $this->assertSame('+5 Dexterity Vest', $items[++$index]->name);
-        $this->assertSame(0, $items[$index]->sell_in);
-        $this->assertSame(10, $items[$index]->quality);
+        $this->assertSame('+5 Dexterity Vest', $items[++$index]->getName());
+        $this->assertSame(0, $items[$index]->getSellIn());
+        $this->assertSame(10, $items[$index]->getQuality());
         
-        $this->assertSame('Aged Brie', $items[++$index]->name);
-        $this->assertSame(-8, $items[$index]->sell_in);
-        $this->assertSame(18, $items[$index]->quality);
+        $this->assertSame('Aged Brie', $items[++$index]->getName());
+        $this->assertSame(-8, $items[$index]->getSellIn());
+        $this->assertSame(18, $items[$index]->getQuality());
         
-        $this->assertSame('Elixir of the Mongoose', $items[++$index]->name);
-        $this->assertSame(-5, $items[$index]->sell_in);
-        $this->assertSame(0, $items[$index]->quality);
+        $this->assertSame('Elixir of the Mongoose', $items[++$index]->getName());
+        $this->assertSame(-5, $items[$index]->getSellIn());
+        $this->assertSame(0, $items[$index]->getQuality());
         
-        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->name);
-        $this->assertSame(0, $items[$index]->sell_in);
-        $this->assertSame(80, $items[$index]->quality);
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->getName());
+        $this->assertSame(0, $items[$index]->getSellIn());
+        $this->assertSame(80, $items[$index]->getQuality());
         
-        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->name);
-        $this->assertSame(-1, $items[$index]->sell_in);
-        $this->assertSame(80, $items[$index]->quality);
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->getName());
+        $this->assertSame(-1, $items[$index]->getSellIn());
+        $this->assertSame(80, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(5, $items[$index]->sell_in);
-        $this->assertSame(35, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(5, $items[$index]->getSellIn());
+        $this->assertSame(35, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(0, $items[$index]->sell_in);
-        $this->assertSame(50, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(0, $items[$index]->getSellIn());
+        $this->assertSame(50, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(-5, $items[$index]->sell_in);
-        $this->assertSame(0, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(-5, $items[$index]->getSellIn());
+        $this->assertSame(0, $items[$index]->getQuality());
         
-//        $this->assertSame('Conjured Mana Cake', $items[++$index]->name);
-//        $this->assertSame(-7, $items[$index]->sell_in);
-//        $this->assertSame(0, $items[$index]->quality);
+//        $this->assertSame('Conjured Mana Cake', $items[++$index]->getName());
+//        $this->assertSame(-7, $items[$index]->getSellIn());
+//        $this->assertSame(0, $items[$index]->getQuality());
     }
 
     public function testDay20(): void
@@ -133,41 +133,41 @@ class GildedRoseDaysTest extends TestCase
         
         $index = -1;
         
-        $this->assertSame('+5 Dexterity Vest', $items[++$index]->name);
-        $this->assertSame(-10, $items[$index]->sell_in);
-        $this->assertSame(0, $items[$index]->quality);
+        $this->assertSame('+5 Dexterity Vest', $items[++$index]->getName());
+        $this->assertSame(-10, $items[$index]->getSellIn());
+        $this->assertSame(0, $items[$index]->getQuality());
         
-        $this->assertSame('Aged Brie', $items[++$index]->name);
-        $this->assertSame(-18, $items[$index]->sell_in);
-        $this->assertSame(38, $items[$index]->quality);
+        $this->assertSame('Aged Brie', $items[++$index]->getName());
+        $this->assertSame(-18, $items[$index]->getSellIn());
+        $this->assertSame(38, $items[$index]->getQuality());
         
-        $this->assertSame('Elixir of the Mongoose', $items[++$index]->name);
-        $this->assertSame(-15, $items[$index]->sell_in);
-        $this->assertSame(0, $items[$index]->quality);
+        $this->assertSame('Elixir of the Mongoose', $items[++$index]->getName());
+        $this->assertSame(-15, $items[$index]->getSellIn());
+        $this->assertSame(0, $items[$index]->getQuality());
         
-        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->name);
-        $this->assertSame(0, $items[$index]->sell_in);
-        $this->assertSame(80, $items[$index]->quality);
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->getName());
+        $this->assertSame(0, $items[$index]->getSellIn());
+        $this->assertSame(80, $items[$index]->getQuality());
         
-        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->name);
-        $this->assertSame(-1, $items[$index]->sell_in);
-        $this->assertSame(80, $items[$index]->quality);
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[++$index]->getName());
+        $this->assertSame(-1, $items[$index]->getSellIn());
+        $this->assertSame(80, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(-5, $items[$index]->sell_in);
-        $this->assertSame(0, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(-5, $items[$index]->getSellIn());
+        $this->assertSame(0, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(-10, $items[$index]->sell_in);
-        $this->assertSame(0, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(-10, $items[$index]->getSellIn());
+        $this->assertSame(0, $items[$index]->getQuality());
         
-        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->name);
-        $this->assertSame(-15, $items[$index]->sell_in);
-        $this->assertSame(0, $items[$index]->quality);
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[++$index]->getName());
+        $this->assertSame(-15, $items[$index]->getSellIn());
+        $this->assertSame(0, $items[$index]->getQuality());
         
-//        $this->assertSame('Conjured Mana Cake', $items[++$index]->name);
-//        $this->assertSame(-17, $items[$index]->sell_in);
-//        $this->assertSame(0, $items[$index]->quality);
+//        $this->assertSame('Conjured Mana Cake', $items[++$index]->getName());
+//        $this->assertSame(-17, $items[$index]->getSellIn());
+//        $this->assertSame(0, $items[$index]->getQuality());
     }
 
 }
