@@ -52,10 +52,8 @@ class Item
         $this->sell_in = $this->sell_in - 1;
 
         if ($this->getName() == 'Aged Brie') {
-            $this->upQuality();
-            if ($this->getSellIn() < 0) {
-                $this->upQuality();
-            }
+            $calculator = new AgedBrieCalculator();
+            $this->quality = $calculator->calculateQuality($this->getSellIn(), $this->getQuality());
         } else if ($this->getName() == 'Backstage passes to a TAFKAL80ETC concert') {
             $this->upQuality();
             if ($this->getSellIn() < 10) {
