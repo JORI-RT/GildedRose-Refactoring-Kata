@@ -28,41 +28,68 @@ class Item
         $this->quality = $quality;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
     
-    public function getSellIn()
+    public function getSellIn(): int
     {
         return $this->sell_in;
     }
     
-    public function getQuality()
+    public function getQuality(): int
     {
         return $this->quality;
     }
 
-    public function downSellIn()
+    public function downSellIn(): void
     {
+        if ($this->getName() == 'Sulfuras, Hand of Ragnaros') {
+            return;
+        }
+
         $this->sell_in = $this->sell_in - 1;
+
+        if ($this->getName() == 'Aged Brie') {
+            $this->upQuality();
+            if ($this->getSellIn() < 0) {
+                $this->upQuality();
+            }
+        } else if ($this->getName() == 'Backstage passes to a TAFKAL80ETC concert') {
+            $this->upQuality();
+            if ($this->getSellIn() < 10) {
+                $this->upQuality();
+            }
+            if ($this->getSellIn() < 5) {
+                $this->upQuality();
+            }
+            if ($this->getSellIn() < 0) {
+                $this->resetQuality();
+            }
+        } else {
+            $this->downQuality();
+            if ($this->getSellIn() < 0) {
+                $this->downQuality();
+            }
+        }
     }
 
-    public function upQuality()
+    private function upQuality(): void
     {
         if ($this->quality < 50) {
             $this->quality = $this->quality + 1;
         }
     }
 
-    public function downQuality()
+    private function downQuality(): void
     {
         if ($this->quality > 0) {
             $this->quality = $this->quality - 1;
         }
     }
 
-    public function resetQuality()
+    private function resetQuality(): void
     {
         $this->quality = 0;
     }
