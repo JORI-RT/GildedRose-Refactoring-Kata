@@ -55,41 +55,12 @@ class Item
             $calculator = new AgedBrieCalculator();
             $this->quality = $calculator->calculateQuality($this->getSellIn(), $this->getQuality());
         } else if ($this->getName() == 'Backstage passes to a TAFKAL80ETC concert') {
-            $this->upQuality();
-            if ($this->getSellIn() < 10) {
-                $this->upQuality();
-            }
-            if ($this->getSellIn() < 5) {
-                $this->upQuality();
-            }
-            if ($this->getSellIn() < 0) {
-                $this->resetQuality();
-            }
+            $calculator = new BackstagePassesCalculator();
+            $this->quality = $calculator->calculateQuality($this->getSellIn(), $this->getQuality());
         } else {
-            $this->downQuality();
-            if ($this->getSellIn() < 0) {
-                $this->downQuality();
-            }
+            $calculator = new ItemCalculator();
+            $this->quality = $calculator->calculateQuality($this->getSellIn(), $this->getQuality());
         }
-    }
-
-    private function upQuality(): void
-    {
-        if ($this->quality < 50) {
-            $this->quality = $this->quality + 1;
-        }
-    }
-
-    private function downQuality(): void
-    {
-        if ($this->quality > 0) {
-            $this->quality = $this->quality - 1;
-        }
-    }
-
-    private function resetQuality(): void
-    {
-        $this->quality = 0;
     }
 
     public function __toString(): string
