@@ -22,9 +22,11 @@ final class GildedRose
     {
         foreach ($this->items as $item) {
             $this->item = $item;
-            if ($item->name === 'Aged Brie') {
+            if ($this->item->name === 'Aged Brie') {
                 // 商品：Aged Brieの処理
                 $this->agedBrie();
+            } elseif ($this->item->name === 'Sulfuras, Hand of Ragnaros') {
+                // 商品：Sulfurasは何もしない
             } else {
                 if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
                     if ($item->quality > 0) {
