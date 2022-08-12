@@ -87,43 +87,43 @@ class GildedRoseTest extends TestCase
     //     $this->assertSame(2, $items[0]->quality); //なぜ2増えるのかは謎
     }
 
-    // public function testSulfuras(): void
-    // {
-    //     $items = [new Item('Sulfuras, Hand of Ragnaros', 50, 50)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
-    //     $this->assertSame(50, $items[0]->sell_in);
-    //     $this->assertSame(50, $items[0]->quality);
+    public function testSulfuras(): void
+    {
+        $items = [new Item('Sulfuras, Hand of Ragnaros', 50, 50)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
+        $this->assertSame(50, $items[0]->sell_in);
+        $this->assertSame(50, $items[0]->quality);
 
-    //     $items = [new Item('Sulfuras, Hand of Ragnaros', 10, 10)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
-    //     $this->assertSame(10, $items[0]->sell_in);
-    //     $this->assertSame(10, $items[0]->quality);
+        $items = [new Item('Sulfuras, Hand of Ragnaros', 10, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
+        $this->assertSame(10, $items[0]->sell_in);
+        $this->assertSame(10, $items[0]->quality);
 
-    //     $items = [new Item('Sulfuras, Hand of Ragnaros', 5, 5)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
-    //     $this->assertSame(5, $items[0]->sell_in);
-    //     $this->assertSame(5, $items[0]->quality);
+        $items = [new Item('Sulfuras, Hand of Ragnaros', 5, 5)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
+        $this->assertSame(5, $items[0]->sell_in);
+        $this->assertSame(5, $items[0]->quality);
 
-    //     $items = [new Item('Sulfuras, Hand of Ragnaros', 1, 1)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
-    //     $this->assertSame(1, $items[0]->sell_in);
-    //     $this->assertSame(1, $items[0]->quality);
+        $items = [new Item('Sulfuras, Hand of Ragnaros', 1, 1)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
+        $this->assertSame(1, $items[0]->sell_in);
+        $this->assertSame(1, $items[0]->quality);
 
-    //     $items = [new Item('Sulfuras, Hand of Ragnaros', 0, 0)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
-    //     $this->assertSame(0, $items[0]->sell_in);
-    //     $this->assertSame(0, $items[0]->quality);
-    // }
+        $items = [new Item('Sulfuras, Hand of Ragnaros', 0, 0)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
+        $this->assertSame(0, $items[0]->sell_in);
+        $this->assertSame(0, $items[0]->quality);
+    }
 
     // public function testBackstagePasses(): void
     // {
