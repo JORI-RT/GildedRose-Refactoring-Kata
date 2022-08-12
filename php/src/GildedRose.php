@@ -20,11 +20,11 @@ final class GildedRose
     {
         foreach ($this->items as $item) {
             if ($item->name === 'Aged Brie'){
-                $this->AgedBrie();
+                $this->AgedBrie($item);
             } elseif ($item->name === 'Sulfuras, Hand of Ragnaros'){
-                $this->Sulfuras();
+                $this->Sulfuras($item);
             } elseif ($item->name === 'Backstage passes to a TAFKAL80ETC concert'){
-                $this->BackstagePasses();
+                $this->BackstagePasses($item);
             } else {
                 $this->normal($item);
             }
@@ -77,15 +77,19 @@ final class GildedRose
         }
     }
 
-    private function AgedBrie(): void
+    private function AgedBrie($item): void
+    {
+        if ($item->quality < 50) {
+            $item->quality = $item->quality + 1;
+        }
+        $item->sell_in = $item->sell_in - 1;
+    }
+
+    private function Sulfuras($item): void
     {
     }
 
-    private function Sulfuras(): void
-    {
-    }
-
-    private function BackstagePasses(): void
+    private function BackstagePasses($item): void
     {
     }
 
