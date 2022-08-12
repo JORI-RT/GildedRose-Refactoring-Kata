@@ -243,6 +243,104 @@ class GildedRoseTest extends TestCase
     }
 
     /**
+     * Conjured：sell_inが1以上、qualityが50未満
+     * 期待値：sell_inが-1、qualityが-2
+     */
+    public function testConjuredsNormal(): void
+    {
+        $items = [new Item('Conjured Mana Cake', 10, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Conjured Mana Cake', $items[0]->name);
+        $this->assertSame(9, $items[0]->sell_in);
+        $this->assertSame(8, $items[0]->quality);
+    }
+
+    /**
+     * Conjured：sell_inが1以上、qualityが1
+     * 期待値：sell_inが-1、qualityが-1
+     */
+    public function testConjuredQuality1(): void
+    {
+        $items = [new Item('Conjured Mana Cake', 10, 1)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Conjured Mana Cake', $items[0]->name);
+        $this->assertSame(9, $items[0]->sell_in);
+        $this->assertSame(0, $items[0]->quality);
+    }
+
+    /**
+     * Conjured：sell_inが1以上、qualityが0
+     * 期待値：sell_inが-1、qualityは変更なし
+     */
+    public function testConjuredQuality0(): void
+    {
+        $items = [new Item('Conjured Mana Cake', 10, 0)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Conjured Mana Cake', $items[0]->name);
+        $this->assertSame(9, $items[0]->sell_in);
+        $this->assertSame(0, $items[0]->quality);
+    }
+
+    /**
+     * Conjured：sell_inが0以下、qualityが50未満
+     * 期待値：sell_inが-1、qualityが-4
+     */
+    public function testConjuredSellIn0OrLess(): void
+    {
+        $items = [new Item('Conjured Mana Cake', 0, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Conjured Mana Cake', $items[0]->name);
+        $this->assertSame(-1, $items[0]->sell_in);
+        $this->assertSame(6, $items[0]->quality);
+
+        $items = [new Item('Conjured Mana Cake', -1, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Conjured Mana Cake', $items[0]->name);
+        $this->assertSame(-2, $items[0]->sell_in);
+        $this->assertSame(6, $items[0]->quality);
+    }
+
+    /**
+     * Conjured：sell_inが0以下、qualityが2以下
+     * 期待値：sell_inが-1、qualityを減算、0が下限
+     */
+    public function testConjuredSellIn0OrLessAndQuality2OrLess(): void
+    {
+        $items = [new Item('Conjured Mana Cake', 0, 2)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Conjured Mana Cake', $items[0]->name);
+        $this->assertSame(-1, $items[0]->sell_in);
+        $this->assertSame(0, $items[0]->quality);
+
+        $items = [new Item('Conjured Mana Cake', 0, 1)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Conjured Mana Cake', $items[0]->name);
+        $this->assertSame(-1, $items[0]->sell_in);
+        $this->assertSame(0, $items[0]->quality);
+    }
+
+    /**
+     * Conjured：sell_inが0、qualityが0
+     * 期待値：sell_inが-1、qualityは変更なし
+     */
+    public function testConjuredSellIn0AndQuality0(): void
+    {
+        $items = [new Item('Conjured Mana Cake', 0, 0)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Conjured Mana Cake', $items[0]->name);
+        $this->assertSame(-1, $items[0]->sell_in);
+        $this->assertSame(0, $items[0]->quality);
+    }
+
+    /**
      * 複数商品
      */
     public function testMixCase(): void
@@ -252,6 +350,7 @@ class GildedRoseTest extends TestCase
             new Item('Sulfuras, Hand of Ragnaros', 5, 80),
             new Item('Backstage passes to a TAFKAL80ETC concert', 5, 10),
             new Item('Foo', 5, 10),
+            new Item('Conjured Mana Cake', 5, 10),
         ];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
@@ -267,6 +366,9 @@ class GildedRoseTest extends TestCase
         $this->assertSame('Foo', $items[3]->name);
         $this->assertSame(4, $items[3]->sell_in);
         $this->assertSame(9, $items[3]->quality);
+        $this->assertSame('Conjured Mana Cake', $items[4]->name);
+        $this->assertSame(4, $items[4]->sell_in);
+        $this->assertSame(8, $items[4]->quality);
     }
 
     // テストエラーの原因が特定できないので後で調査する

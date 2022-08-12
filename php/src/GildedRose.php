@@ -20,8 +20,7 @@ final class GildedRose
 
     public function updateQuality(): void
     {
-        foreach ($this->items as $item) {
-            $this->item = $item;
+        foreach ($this->items as $this->item) {
             if ($this->item->name === 'Aged Brie') {
                 // 商品：Aged Brieの処理
                 $this->agedBrie();
@@ -30,6 +29,9 @@ final class GildedRose
             } elseif ($this->item->name === 'Backstage passes to a TAFKAL80ETC concert') {
                 // 商品：Backstage passesの処理
                 $this->backstagePasses();
+            } elseif ($this->item->name === 'Conjured Mana Cake') {
+                // 商品：Conjuredの処理
+                $this->conjured();
             } else {
                 // その他商品の処理
                 $this->others();
@@ -74,6 +76,20 @@ final class GildedRose
     }
 
     /**
+     * 商品：Conjured計算処理
+     */
+    private function conjured(): void
+    {
+        $this->calcSellInSubtraction();
+        $this->calcQualityDoubleSubtraction();
+        
+        // sell_inが0未満の場合、sell_inを再減算する
+        if ($this->item->sell_in < 0) {
+            $this->calcQualityDoubleSubtraction();
+        }
+    }
+
+    /**
      * その他商品
      */
     private function others(): void
@@ -114,6 +130,22 @@ final class GildedRose
         // 1以上の場合計算
         if ($this->item->quality >= 1) {
             --$this->item->quality;
+        }
+    }
+
+    /**
+     * qualityを2倍の減算を行う
+     */
+    private function calcQualityDoubleSubtraction(): void
+    {
+        // 1以上の場合計算
+        if ($this->item->quality >= 1) {
+            $this->item->quality -=2;
+        }
+
+        // qualityが0未満の場合、0を設定
+        if ($this->item->quality < 0) {
+            $this->item->quality = 0;
         }
     }
 }
