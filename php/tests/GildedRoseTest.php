@@ -125,43 +125,43 @@ class GildedRoseTest extends TestCase
         $this->assertSame(0, $items[0]->quality);
     }
 
-    // public function testBackstagePasses(): void
-    // {
-    //     $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 50, 50)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
-    //     $this->assertSame(49, $items[0]->sell_in);
-    //     $this->assertSame(50, $items[0]->quality);
+    public function testBackstagePasses(): void
+    {
+        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 50, 50)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
+        $this->assertSame(49, $items[0]->sell_in);
+        $this->assertSame(50, $items[0]->quality);
 
-    //     $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 10, 10)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
-    //     $this->assertSame(9, $items[0]->sell_in);
-    //     $this->assertSame(12, $items[0]->quality);
+        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 10, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
+        $this->assertSame(9, $items[0]->sell_in);
+        $this->assertSame(12, $items[0]->quality);
 
-    //     $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 5)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
-    //     $this->assertSame(4, $items[0]->sell_in);
-    //     $this->assertSame(8, $items[0]->quality);
+        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 5)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
+        $this->assertSame(4, $items[0]->sell_in);
+        $this->assertSame(8, $items[0]->quality);
 
-    //     $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 1, 1)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
-    //     $this->assertSame(0, $items[0]->sell_in);
-    //     $this->assertSame(4, $items[0]->quality);
+        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 1, 1)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
+        $this->assertSame(0, $items[0]->sell_in);
+        $this->assertSame(4, $items[0]->quality);
 
-    //     $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 0)];
-    //     $gildedRose = new GildedRose($items);
-    //     $gildedRose->updateQuality();
-    //     $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
-    //     $this->assertSame(-1, $items[0]->sell_in);
-    //     $this->assertSame(0, $items[0]->quality);
-    // }
+        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 0)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
+        $this->assertSame(-1, $items[0]->sell_in);
+        $this->assertSame(0, $items[0]->quality);
+    }
 
     // public function testApproveArray()
     // {

@@ -91,6 +91,18 @@ final class GildedRose
 
     private function BackstagePasses($item): void
     {
+        if ($item->quality !== 50){
+            if ($item->sell_in > 10) {
+                $item->quality = $item->quality + 1;
+            } elseif ($item->sell_in > 5) {
+                $item->quality = $item->quality + 2;
+            } elseif ($item->sell_in > 0) {
+                $item->quality = $item->quality + 3;            
+            } elseif ($item->sell_in === 0) {
+                $item->quality = 0;
+            }
+        }
+        $item->sell_in = $item->sell_in - 1;
     }
 
     private function normal($item): void
