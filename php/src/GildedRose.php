@@ -25,7 +25,9 @@ final class GildedRose
                 $this->Sulfuras($item);
             } elseif ($item->name === 'Backstage passes to a TAFKAL80ETC concert'){
                 $this->BackstagePasses($item);
-            } else {
+            } elseif ($item->name === 'Conjured'){
+                $this->Conjured($item);
+           } else {
                 $this->normal($item);
             }
         }
@@ -55,6 +57,16 @@ final class GildedRose
             } elseif ($item->sell_in === 0) {
                 $item->quality = 0;
             }
+        }
+        $item->sell_in = $item->sell_in - 1;
+    }
+
+    private function Conjured($item): void
+    {
+        if ($item->quality >= 2) {
+            $item->quality = $item->quality - 2;
+        } elseif ($item->quality = 1) {
+            $item->quality = $item->quality - 1;
         }
         $item->sell_in = $item->sell_in - 1;
     }
