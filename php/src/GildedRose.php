@@ -31,51 +31,8 @@ final class GildedRose
                 // 商品：Backstage passesの処理
                 $this->backstagePasses();
             } else {
-                if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
-                    if ($item->quality > 0) {
-                        if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                            $item->quality = $item->quality - 1;
-                        }
-                    }
-                } else {
-                    if ($item->quality < 50) {
-                        $item->quality = $item->quality + 1;
-                        if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
-                            if ($item->sell_in < 11) {
-                                if ($item->quality < 50) {
-                                    $item->quality = $item->quality + 1;
-                                }
-                            }
-                            if ($item->sell_in < 6) {
-                                if ($item->quality < 50) {
-                                    $item->quality = $item->quality + 1;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                    $item->sell_in = $item->sell_in - 1;
-                }
-
-                if ($item->sell_in < 0) {
-                    if ($item->name != 'Aged Brie') {
-                        if ($item->name != 'Backstage passes to a TAFKAL80ETC concert') {
-                            if ($item->quality > 0) {
-                                if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                                    $item->quality = $item->quality - 1;
-                                }
-                            }
-                        } else {
-                            $item->quality = $item->quality - $item->quality;
-                        }
-                    } else {
-                        if ($item->quality < 50) {
-                            $item->quality = $item->quality + 1;
-                        }
-                    }
-                }
+                // その他商品の処理
+                $this->others();
             }
         }
     }
@@ -117,6 +74,20 @@ final class GildedRose
     }
 
     /**
+     * その他商品
+     */
+    private function others(): void
+    {
+        $this->calcSellInSubtraction();
+        $this->calcQualitySubtraction();
+
+        // sell_inが0未満の場合、sell_inを再減算する
+        if ($this->item->sell_in < 0) {
+            $this->calcQualitySubtraction();
+        }
+    }
+
+    /**
      * sell_inの減算を行う
      */
     private function calcSellInSubtraction(): void
@@ -132,6 +103,17 @@ final class GildedRose
         // 50未満の場合計算
         if ($this->item->quality < 50) {
             ++$this->item->quality;
+        }
+    }
+
+    /**
+     * qualityの減算を行う
+     */
+    private function calcQualitySubtraction(): void
+    {
+        // 1以上の場合計算
+        if ($this->item->quality >= 1) {
+            --$this->item->quality;
         }
     }
 }
