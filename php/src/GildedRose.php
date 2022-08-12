@@ -27,6 +27,9 @@ final class GildedRose
                 $this->agedBrie();
             } elseif ($this->item->name === 'Sulfuras, Hand of Ragnaros') {
                 // 商品：Sulfurasは何もしない
+            } elseif ($this->item->name === 'Backstage passes to a TAFKAL80ETC concert') {
+                // 商品：Backstage passesの処理
+                $this->backstagePasses();
             } else {
                 if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
                     if ($item->quality > 0) {
@@ -88,6 +91,28 @@ final class GildedRose
         // sell_inが0未満の場合、qualityを再加算する
         if ($this->item->sell_in < 0) {
             $this->calcQualityAddition();
+        }
+    }
+
+    /**
+     * 商品：Backstage passes計算処理
+     */
+    private function backstagePasses(): void
+    {
+        $this->calcSellInSubtraction();
+        $this->calcQualityAddition();
+
+        // sell_inが10未満の場合、qualityを再加算する
+        if ($this->item->sell_in < 10) {
+            $this->calcQualityAddition();
+        }
+        // sell_inが5未満の場合、qualityを再加算する
+        if ($this->item->sell_in < 5) {
+            $this->calcQualityAddition();
+        }
+        // sell_inが0未満の場合、qualityを0する
+        if ($this->item->sell_in < 0) {
+            $this->item->quality = 0;
         }
     }
 
