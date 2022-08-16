@@ -31,15 +31,7 @@ class Item
         $this->name = $name;
         $this->sell_in = $sell_in;
         $this->quality = $quality;
-        if ($this->getName() == 'Aged Brie') {
-            $this->calculator = new AgedBrieCalculator();
-        } else if ($this->getName() == 'Backstage passes to a TAFKAL80ETC concert') {
-            $this->calculator = new BackstagePassesCalculator();
-        } else if ($this->getName() == 'Sulfuras, Hand of Ragnaros') {
-            $this->calculator = new SulfurasCalculator();
-        } else {
-            $this->calculator = new ItemCalculator();
-        }
+        $this->calculator = CalculatorFactory::create($name);
     }
     
     public function getName(): string
