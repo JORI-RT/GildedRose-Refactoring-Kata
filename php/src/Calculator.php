@@ -8,4 +8,6 @@ interface Calculator {
 
    public function calculateQuality(int $sell_in, int $quality): int;
 
+   public function calculateSellIn(int $sell_in): int;
+
 }

@@ -59,10 +59,7 @@ class Item
 
     public function downSellIn(): void
     {
-        if ($this->getName() == 'Sulfuras, Hand of Ragnaros') {
-            return;
-        } 
-        $this->sell_in = $this->sell_in - 1;
+        $this->sell_in = $this->calculator->calculateSellIn($this->getSellIn());
         $this->quality = $this->calculator->calculateQuality($this->getSellIn(), $this->getQuality());
     }
 

@@ -11,4 +11,10 @@ class SulfurasCalculator extends BaseCalculator
     {
         return $quality;
     }
- }
+
+    public function calculateSellIn(int $sell_in): int
+    {
+        return $sell_in;
+    }
+
+}

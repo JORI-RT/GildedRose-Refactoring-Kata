@@ -13,6 +13,11 @@ abstract class BaseCalculator implements Calculator
     
     abstract public function calculateQuality(int $sell_in, int $quality): int;
 
+    public function calculateSellIn(int $sell_in): int
+    {
+        return $sell_in - 1;
+    }
+
     protected function upQuality($quality): int
     {
         if ($quality < 50) {
