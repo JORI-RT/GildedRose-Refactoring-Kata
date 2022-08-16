@@ -57,9 +57,19 @@ class Item
         return $this->quality;
     }
 
-    public function downSellIn(): void
+    public function update(): void
+    {
+        $this->downSellIn();
+    }
+
+    private function downSellIn(): void
     {
         $this->sell_in = $this->calculator->calculateSellIn($this->getSellIn());
+        $this->updateQuality();
+    }
+
+    private function updateQuality(): void
+    {
         $this->quality = $this->calculator->calculateQuality($this->getSellIn(), $this->getQuality());
     }
 
