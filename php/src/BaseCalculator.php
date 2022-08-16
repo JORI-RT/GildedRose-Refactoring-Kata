@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-abstract class BaseCalculator 
+abstract class BaseCalculator implements Calculator
 {
     
     public function __construct()
