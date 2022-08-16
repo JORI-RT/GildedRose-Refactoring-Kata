@@ -7,41 +7,46 @@ namespace Tests;
 use ApprovalTests\Approvals;
 use GildedRose\GildedRose;
 use GildedRose\Item;
+use GildedRose\AgedBrieItem;
+use GildedRose\BackstagePassesItem;
+use GildedRose\ConjuredItem;
+use GildedRose\NormalItem;
+use GildedRose\SulfurasItem;
 use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase
 {
     public function testNormal(): void
     {
-        $items = [new Item('normal', 50, 50)];
+        $items = [new NormalItem('normal', 50, 50)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('normal', $items[0]->name);
         $this->assertSame(49, $items[0]->sell_in);
         $this->assertSame(49, $items[0]->quality);
    
-        $items = [new Item('normal', 10, 10)];
+        $items = [new NormalItem('normal', 10, 10)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('normal', $items[0]->name);
         $this->assertSame(9, $items[0]->sell_in);
         $this->assertSame(9, $items[0]->quality);
 
-        $items = [new Item('normal', 5, 5)];
+        $items = [new NormalItem('normal', 5, 5)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('normal', $items[0]->name);
         $this->assertSame(4, $items[0]->sell_in);
         $this->assertSame(4, $items[0]->quality);
 
-        $items = [new Item('normal', 1, 1)];
+        $items = [new NormalItem('normal', 1, 1)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('normal', $items[0]->name);
         $this->assertSame(0, $items[0]->sell_in);
         $this->assertSame(0, $items[0]->quality);
 
-        $items = [new Item('normal', 0, 0)];
+        $items = [new NormalItem('normal', 0, 0)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('normal', $items[0]->name);
@@ -51,35 +56,35 @@ class GildedRoseTest extends TestCase
 
     public function testAgedBrie(): void
     {
-        $items = [new Item('Aged Brie', 50, 50)];
+        $items = [new AgedBrieItem('Aged Brie', 50, 50)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Aged Brie', $items[0]->name);
         $this->assertSame(49, $items[0]->sell_in);
         $this->assertSame(50, $items[0]->quality);
 
-        $items = [new Item('Aged Brie', 10, 10)];
+        $items = [new AgedBrieItem('Aged Brie', 10, 10)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Aged Brie', $items[0]->name);
         $this->assertSame(9, $items[0]->sell_in);
         $this->assertSame(11, $items[0]->quality);
 
-        $items = [new Item('Aged Brie', 5, 5)];
+        $items = [new AgedBrieItem('Aged Brie', 5, 5)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Aged Brie', $items[0]->name);
         $this->assertSame(4, $items[0]->sell_in);
         $this->assertSame(6, $items[0]->quality);
 
-        $items = [new Item('Aged Brie', 1, 1)];
+        $items = [new AgedBrieItem('Aged Brie', 1, 1)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Aged Brie', $items[0]->name);
         $this->assertSame(0, $items[0]->sell_in);
         $this->assertSame(2, $items[0]->quality);
 
-        $items = [new Item('Aged Brie', 0, 0)];
+        $items = [new AgedBrieItem('Aged Brie', 0, 0)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Aged Brie', $items[0]->name);
@@ -89,35 +94,35 @@ class GildedRoseTest extends TestCase
 
     public function testSulfuras(): void
     {
-        $items = [new Item('Sulfuras, Hand of Ragnaros', 50, 50)];
+        $items = [new SulfurasItem('Sulfuras, Hand of Ragnaros', 50, 50)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
         $this->assertSame(50, $items[0]->sell_in);
         $this->assertSame(50, $items[0]->quality);
 
-        $items = [new Item('Sulfuras, Hand of Ragnaros', 10, 10)];
+        $items = [new SulfurasItem('Sulfuras, Hand of Ragnaros', 10, 10)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
         $this->assertSame(10, $items[0]->sell_in);
         $this->assertSame(10, $items[0]->quality);
 
-        $items = [new Item('Sulfuras, Hand of Ragnaros', 5, 5)];
+        $items = [new SulfurasItem('Sulfuras, Hand of Ragnaros', 5, 5)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
         $this->assertSame(5, $items[0]->sell_in);
         $this->assertSame(5, $items[0]->quality);
 
-        $items = [new Item('Sulfuras, Hand of Ragnaros', 1, 1)];
+        $items = [new SulfurasItem('Sulfuras, Hand of Ragnaros', 1, 1)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
         $this->assertSame(1, $items[0]->sell_in);
         $this->assertSame(1, $items[0]->quality);
 
-        $items = [new Item('Sulfuras, Hand of Ragnaros', 0, 0)];
+        $items = [new SulfurasItem('Sulfuras, Hand of Ragnaros', 0, 0)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Sulfuras, Hand of Ragnaros', $items[0]->name);
@@ -127,35 +132,35 @@ class GildedRoseTest extends TestCase
 
     public function testBackstagePasses(): void
     {
-        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 50, 50)];
+        $items = [new BackstagePassesItem('Backstage passes to a TAFKAL80ETC concert', 50, 50)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
         $this->assertSame(49, $items[0]->sell_in);
         $this->assertSame(50, $items[0]->quality);
 
-        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 10, 10)];
+        $items = [new BackstagePassesItem('Backstage passes to a TAFKAL80ETC concert', 10, 10)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
         $this->assertSame(9, $items[0]->sell_in);
         $this->assertSame(12, $items[0]->quality);
 
-        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 5)];
+        $items = [new BackstagePassesItem('Backstage passes to a TAFKAL80ETC concert', 5, 5)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
         $this->assertSame(4, $items[0]->sell_in);
         $this->assertSame(8, $items[0]->quality);
 
-        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 1, 1)];
+        $items = [new BackstagePassesItem('Backstage passes to a TAFKAL80ETC concert', 1, 1)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
         $this->assertSame(0, $items[0]->sell_in);
         $this->assertSame(4, $items[0]->quality);
 
-        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 0)];
+        $items = [new BackstagePassesItem('Backstage passes to a TAFKAL80ETC concert', 0, 0)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Backstage passes to a TAFKAL80ETC concert', $items[0]->name);
@@ -165,35 +170,35 @@ class GildedRoseTest extends TestCase
 
     public function testConjured(): void
     {
-        $items = [new Item('Conjured', 50, 50)];
+        $items = [new ConjuredItem('Conjured', 50, 50)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Conjured', $items[0]->name);
         $this->assertSame(49, $items[0]->sell_in);
         $this->assertSame(48, $items[0]->quality);
 
-        $items = [new Item('Conjured', 10, 10)];
+        $items = [new ConjuredItem('Conjured', 10, 10)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Conjured', $items[0]->name);
         $this->assertSame(9, $items[0]->sell_in);
         $this->assertSame(8, $items[0]->quality);
 
-        $items = [new Item('Conjured', 5, 5)];
+        $items = [new ConjuredItem('Conjured', 5, 5)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Conjured', $items[0]->name);
         $this->assertSame(4, $items[0]->sell_in);
         $this->assertSame(3, $items[0]->quality);
 
-        $items = [new Item('Conjured', 1, 1)];
+        $items = [new ConjuredItem('Conjured', 1, 1)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Conjured', $items[0]->name);
         $this->assertSame(0, $items[0]->sell_in);
         $this->assertSame(0, $items[0]->quality);
 
-        $items = [new Item('Conjured', 0, 0)];
+        $items = [new ConjuredItem('Conjured', 0, 0)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame('Conjured', $items[0]->name);
